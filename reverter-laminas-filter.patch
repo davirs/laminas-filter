@@ -1,0 +1,11 @@
+--- a/laminas-filter/src/FilterChain.php
++++ b/laminas-filter/src/FilterChain.php
+@@ -87,7 +87,7 @@
+                     foreach ($value as $spec) {
+                         $callback = $spec['callback'] ?? false;
+                         $priority = $spec['priority'] ?? static::DEFAULT_PRIORITY;
+-                        if (is_callable($callback)) {
++                        if ($callback) {
+                             $this->attach($callback, $priority);
+                         }
+                     }
